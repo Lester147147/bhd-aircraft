@@ -9,66 +9,28 @@
     :root{color-scheme:dark;--bg:#07111f;--panel:#0e1b2d;--line:#22344d;--text:#f4f7fb;--muted:#9db0c8;--accent:#63d4ff}
     *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
     header{padding:14px 16px 10px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#0b1727,#07111f)}
-    h1{font-size:20px;margin:0 0 4px} .sub{color:var(--muted);font-size:13px}
-    .tabs{display:flex;gap:8px;padding:10px 12px;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(7,17,31,.96);z-index:3}
-    button,a.btn{appearance:none;border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:10px;padding:10px 12px;font-weight:650;text-decoration:none;cursor:pointer}
-    button.active{border-color:var(--accent);color:var(--accent)}
-    .view{display:none}.view.active{display:block}
-    .radar-wrap{height:calc(100vh - 118px);min-height:520px;position:relative}
-    iframe{border:0;width:100%;height:100%;display:block;background:#08111d}
-    .badge{position:absolute;left:12px;bottom:14px;background:rgba(7,17,31,.88);border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:12px;color:var(--muted);z-index:2;backdrop-filter:blur(8px)}
-    .cards{display:grid;gap:12px;padding:14px;max-width:760px;margin:auto}.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px}.card h2{margin:0 0 8px;font-size:18px}.card p{margin:0 0 12px;color:var(--muted);line-height:1.45}.row{display:flex;gap:10px;flex-wrap:wrap}
-    footer{padding:12px 16px;color:var(--muted);font-size:12px;text-align:center}
+    h1{font-size:20px;margin:0 0 4px}.sub{color:var(--muted);font-size:13px}.tabs{display:flex;gap:8px;padding:10px 12px;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(7,17,31,.96);z-index:3}
+    button,a.btn{appearance:none;border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:10px;padding:10px 12px;font-weight:650;text-decoration:none;cursor:pointer}button.active{border-color:var(--accent);color:var(--accent)}
+    .view{display:none}.view.active{display:block}.radar-wrap{height:calc(100vh - 118px);min-height:520px;position:relative}iframe{border:0;width:100%;height:100%;display:block;background:#08111d}.badge{position:absolute;left:12px;bottom:14px;background:rgba(7,17,31,.9);border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:12px;color:var(--muted);z-index:2;backdrop-filter:blur(8px)}
+    .openmap{position:absolute;right:12px;bottom:14px;z-index:2}.cards{display:grid;gap:12px;padding:14px;max-width:760px;margin:auto}.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px}.card h2{margin:0 0 8px;font-size:18px}.card p{margin:0 0 12px;color:var(--muted);line-height:1.45}.row{display:flex;gap:10px;flex-wrap:wrap}footer{padding:12px 16px;color:var(--muted);font-size:12px;text-align:center}
   </style>
 </head>
 <body>
-<header>
-  <h1>✈️ BHD Aircraft Radar</h1>
-  <div class="sub">George Best Belfast City Airport · live aircraft centred on BHD</div>
-</header>
-<nav class="tabs">
-  <button class="tab active" data-view="radar">Radar</button>
-  <button class="tab" data-view="flights">Arrivals & Departures</button>
-</nav>
+<header><h1>✈️ BHD Aircraft Radar</h1><div class="sub">George Best Belfast City Airport · 50 NM live view</div></header>
+<nav class="tabs"><button class="tab active" data-view="radar">Radar</button><button class="tab" data-view="flights">Arrivals & Departures</button></nav>
 <main>
-  <section id="radar" class="view active">
-    <div class="radar-wrap">
-      <iframe
-        title="Live aircraft around Belfast City Airport"
-        src="https://globe.airplanes.live/?airport=EGAC&enableLabels&extendedLabels=2&hideSidebar&hideButtons&mapDim=0.35"
-        allow="geolocation"
-        loading="eager"
-        referrerpolicy="no-referrer-when-downgrade"></iframe>
-      <div class="badge">Live ADS-B / MLAT feed · tap an aircraft for details</div>
-    </div>
-  </section>
-  <section id="flights" class="view">
-    <div class="cards">
-      <div class="card">
-        <h2>Arrivals</h2>
-        <p>Open Belfast City Airport's live arrivals board for scheduled time, origin, airline and current status.</p>
-        <div class="row"><a class="btn" href="https://www.belfastcityairport.com/Flight-Info/Arrivals" target="_blank" rel="noopener">Open live arrivals</a></div>
-      </div>
-      <div class="card">
-        <h2>Departures</h2>
-        <p>Open Belfast City Airport's live departures board for destination, airline, scheduled time and current status.</p>
-        <div class="row"><a class="btn" href="https://www.belfastcityairport.com/Flight-Info/Departures" target="_blank" rel="noopener">Open live departures</a></div>
-      </div>
-      <div class="card">
-        <h2>How this version fixes the “0 aircraft” problem</h2>
-        <p>The radar is no longer dependent on the old app feed. It loads the live Airplanes.live tracking map directly around EGAC/BHD, including ADS-B and MLAT traffic.</p>
-      </div>
-    </div>
-  </section>
+<section id="radar" class="view active"><div class="radar-wrap">
+<iframe title="Live aircraft around Belfast City Airport" src="https://globe.airplanes.live/?lat=54.6181&lon=-5.8725&zoom=8&enableLabels&extendedLabels=2&largeMode=2&mapDim=0.35" loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<div class="badge">BHD fixed centre · live ADS-B / MLAT</div>
+<a class="btn openmap" href="https://globe.airplanes.live/?lat=54.6181&lon=-5.8725&zoom=8&enableLabels&extendedLabels=2&largeMode=2" target="_blank" rel="noopener">Open full radar</a>
+</div></section>
+<section id="flights" class="view"><div class="cards">
+<div class="card"><h2>Arrivals</h2><p>Official Belfast City Airport live arrivals.</p><div class="row"><a class="btn" href="https://www.belfastcityairport.com/Flight-Info/Arrivals" target="_blank" rel="noopener">Open live arrivals</a></div></div>
+<div class="card"><h2>Departures</h2><p>Official Belfast City Airport live departures.</p><div class="row"><a class="btn" href="https://www.belfastcityairport.com/Flight-Info/Departures" target="_blank" rel="noopener">Open live departures</a></div></div>
+<div class="card"><h2>Radar fix</h2><p>This version uses BHD's exact latitude and longitude rather than relying on airport-code centring. If the embedded view is blocked on a phone, “Open full radar” opens the same live BHD-centred map directly.</p></div>
+</div></section>
 </main>
 <footer>BHD Aircraft Radar · independent viewer using public live tracking and airport information</footer>
-<script>
-  document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{
-    document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
-    document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById(btn.dataset.view).classList.add('active');
-  }));
-</script>
+<script>document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));btn.classList.add('active');document.getElementById(btn.dataset.view).classList.add('active')}));</script>
 </body>
 </html>
