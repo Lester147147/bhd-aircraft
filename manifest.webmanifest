@@ -1,9 +1,18 @@
 {
-  "name":"BHD Aircraft Radar",
-  "short_name":"BHD Radar",
-  "start_url":"./",
-  "display":"standalone",
-  "background_color":"#07111f",
-  "theme_color":"#07111f",
-  "description":"Live aircraft radar centred on George Best Belfast City Airport"
+  "name": "BHD Aircraft Radar",
+  "short_name": "BHD Radar",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#07111f",
+  "theme_color": "#07111f",
+  "description": "Live aircraft radar centred on George Best Belfast City Airport",
+  "icons": [
+    {
+      "src": "./bhd-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
 }
